@@ -5,9 +5,9 @@ const http = axios.create({
     timeout:2000
 })
 
-axios.interceptors.request.use(config => {
-    if(window.sessionStorage.getItem('token')){
-    config.headers.Authorization = window.sessionStorage.getItem('token')}
+http.interceptors.request.use(config => {
+    if(sessionStorage.getItem('token')){
+    config.headers.Authorization = sessionStorage.getItem('token')}
     return config
 })
 

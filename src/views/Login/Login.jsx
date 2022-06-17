@@ -20,7 +20,8 @@ export default function Login() {
     //发送登录请求
     const getUserInfo = async () => {
         const { data: res } = await http.post('/login', account)
-        if (res.meta.status !== 200) return info(res.meta.msg)
+        if (res.meta.status !== 200) 
+        return info(res.meta.msg)
         info(res.meta.msg)
         sessionStorage.setItem('token', res.data.token)
         sessionStorage.setItem('userName', res.data.username)
@@ -76,12 +77,12 @@ export default function Login() {
                         rules={[
                             {
                                 required: true,
-                                message: '请输入您的帐号',
+                                message: '请输入企业帐号',
                             },
                         ]}
                     >
                         <Input
-                            placeholder="请输入帐号"
+                            placeholder="请输入企业帐号"
                             name="username"
                             onChange={onChangeHandler} />
                     </Form.Item>

@@ -1,10 +1,10 @@
 import { lazy } from "react";
 import {
-    BrowserRouter,
     Routes,
     Route,
 } from "react-router-dom";
 import Login from "../views/Login/Login";
+// import ProtectedRouter from "../componets/ProtectedRouter";
 // import Home from "../views/Home/Home";
 const Home = lazy(() => import('../views/Home/Home'))
 
@@ -23,14 +23,12 @@ const Home = lazy(() => import('../views/Home/Home'))
 
 const Router = () => {
     return (
-        <div>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/" element={<Home />} />
-                </Routes>
-            </BrowserRouter>
-        </div>
+        <>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Home />} />
+            </Routes>
+        </>
     )
 }
 
