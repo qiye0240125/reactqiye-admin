@@ -7,10 +7,12 @@ import { Outlet } from "react-router-dom";
 import styles from './style.module.less'
 
 export default function Home() {
-    const [AsideList, setAsideList] = useState()
+    const [AsideList, setAsideList] = useState([])
 
     const getAsideList = async () => {
         const { data: res } = await http.get('/menus')
+        console.log(res)
+        setAsideList(res.data)
         if (res.meta.status !== 200) return
 
     }
@@ -23,7 +25,10 @@ export default function Home() {
         <div className={styles.root}>
             <Header ></Header>
             <div className={styles.content}>
-                <Aside className={styles.contentLeft}>
+                <Aside 
+                className={styles.contentLeft}
+                AsideList={AsideList}
+                >
                 </Aside>
                 {/* <Content className={styles.contentRight}> */}
                 <div className={styles.contentRight}>
