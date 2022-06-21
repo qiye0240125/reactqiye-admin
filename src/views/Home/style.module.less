@@ -3,21 +3,27 @@
     // width: 100%;
     display: flex;
     flex-direction: column;
+
     // overflow: hidden;
     .content {
-        flex:auto;
-        height: calc(100vh - 80px) ;
+        flex: auto;
+        height: calc(100vh - 80px);
         display: flex;
-        justify-content: space-between;
-        
+        // justify-content: space-between;
         // height: 100vh;
-        // .contentLeft{
+        .contentLeft {
             // height: 100%;
             // overflow: auto;
-        // }
-        .contentRight{
-            flex:1;
-            overflow-y: auto
+            // }
+            // width: 220px;
+            flex-grow:0;
+        }
+
+        .contentRight {
+            flex: 1;
+            
+            // width: 100%;
+            // overflow-y: auto
         }
     }
 }

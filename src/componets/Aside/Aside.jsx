@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from './style.module.less'
+import { useNavigate } from "react-router-dom";
 import { MailOutlined, SettingOutlined, AppstoreOutlined } from '@ant-design/icons';
 import { Menu } from 'antd'
 
@@ -7,6 +8,8 @@ export function Aside(props) {
     const [openKeys, setOpenKeys] = useState(['sub1']);
     // const [AsideList,setasideList] = useState(props.AsideList)
 
+
+    const navigate = useNavigate()
     function getItem(label, key, icon, children, type) {
         return {
             key,
@@ -16,24 +19,6 @@ export function Aside(props) {
             type,
         };
     }
-
-    // const items = [
-    //     getItem('Navigation One', 'sub1', <MailOutlined />, [
-    //         getItem('Item 1', 'g1', null, [getItem('Option 1', '1'), getItem('Option 2', '2')], 'group'),
-    //         getItem('Item 2', 'g2', null, [getItem('Option 3', '3'), getItem('Option 4', '4')], 'group'),
-    //     ]),
-    //     getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
-    //         getItem('Option 5', '5'),
-    //         getItem('Option 6', '6'),
-    //         getItem('Submenu', 'sub3', null, [getItem('Option 7', '7'), getItem('Option 8', '8')]),
-    //     ]),
-    //     getItem('Navigation Three', 'sub4', <SettingOutlined />, [
-    //         getItem('Option 9', '9'),
-    //         getItem('Option 10', '10'),
-    //         getItem('Option 11', '11'),
-    //         getItem('Option 12', '12'),
-    //     ]),
-    // ];
 
     const icon = (n) => {
         let icon2
@@ -72,6 +57,7 @@ export function Aside(props) {
     };
     const onClick = (e) => {
         console.log(e)
+        navigate(`/${e.key}`)
     }
 
 
@@ -85,7 +71,7 @@ export function Aside(props) {
             <Menu
             className={styles.Menu}
                 style={{
-                    width: 256,
+                    width: 220,
                 }}
                 onClick={onClick}
                 openKeys={openKeys}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,Suspense } from "react";
 import { Header } from "../../componets/Headers/Header";
 import { Aside } from "../../componets/Aside/Aside";
 import http from '../../Request/request'
@@ -9,9 +9,10 @@ import styles from './style.module.less'
 export default function Home() {
     const [AsideList, setAsideList] = useState([])
 
+    //获取侧边栏列表
     const getAsideList = async () => {
         const { data: res } = await http.get('/menus')
-        console.log(res)
+        // console.log(res)
         setAsideList(res.data)
         if (res.meta.status !== 200) return
 
@@ -30,11 +31,9 @@ export default function Home() {
                 AsideList={AsideList}
                 >
                 </Aside>
-                {/* <Content className={styles.contentRight}> */}
-                <div className={styles.contentRight}>
+                <Suspense className={styles.contentRight}>
                     <Outlet></Outlet>
-                </div>
-                {/* </Content> */}
+                </Suspense>
             </div>
         </div>
     )
