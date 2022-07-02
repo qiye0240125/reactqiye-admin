@@ -58,7 +58,7 @@ export default function Roles() {
 
     const setUserRolesHandleOk = () => {
         console.log(autocheckedKeys)
-        setcheckedKeys([])
+        // setcheckedKeys([])
         // setsetUserRolesModal(false)
     }
     const setUserRolesHandleCancel = () => {
@@ -211,6 +211,7 @@ export default function Roles() {
                     // expandedKeys={expandedKeys}
                     checkable
                     defaultExpandAll
+                    // checkStrictly
                     // autoExpandParent={autoExpandParent}
                     treeData={rightsListData}
                     fieldNames={{ title: 'authName', key: 'id', children: 'children' }}
@@ -219,7 +220,6 @@ export default function Roles() {
                     onCheck={treeOnCheck}
                     onSelect={treeOnSelect}
                 >
-
                 </Tree>
 
             </Modal>

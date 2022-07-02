@@ -1,0 +1,42 @@
+.drawerBox {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 500ms, width 1ms;
+
+    // z-index: 10;
+    .drawerBoxRight {
+        width: 768px;
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        left: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        transition: transform 300ms;
+    }
+
+    &.isOpen {
+        opacity: 1;
+        width: 100%;
+
+        .drawerBoxRight {
+            transform: translateX(0%);
+        }
+    }
+
+    &.isClose {
+        opacity: 0.5;
+        width: 0;
+        transition-delay: 300ms;
+
+        .drawerBoxRight {
+            transform: translateX(100%);
+        }
+    }
+}
