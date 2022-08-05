@@ -4,14 +4,16 @@ import { useNavigate } from "react-router-dom";
 // export const context = createContext()
 
 function AppProvider({ children }) {
-    const to = useNavigate();
-    const [isToken, setIsToken] = useState(false);
+    // console.log('我执行了,provider' )
+    const Navigate = useNavigate();
+    // const [isToken, setIsToken] = useState(false);
     const token = sessionStorage.getItem('token')
     useEffect(() => {
+        // console.log('我执行了')
         if(!token){
-            to('/login');
+            Navigate('/login');
         }
-    }, [isToken]);
+    }, [token,Navigate]);
     return (
         // <context.Provider value={{ isToken, setIsToken }}>
         //     {children}
