@@ -88,15 +88,16 @@ export default function Rights() {
     // },[usersdefaultRequest])
 
     const getUserList = () => {
+        console.log('我是获得用户this',this)
         getUserListdData(usersdefaultRequest)
     }
 
     useEffect(() => {
-        console.log(userListdData)
+        // console.log(userListdData)
     }, [userListdData])
 
     useEffect(() => {
-        console.log(upVideo)
+        // console.log(upVideo)
         console.log(URL.createObjectURL)
     }, [])
 
@@ -125,6 +126,10 @@ export default function Rights() {
         // console.log(proMise2)
         setPromise(proMise2)
     }
+
+    const isEven = n => n % 2 === 0;
+
+
 
     return (
         <div className={styles.rightsBox}>
@@ -162,6 +167,7 @@ export default function Rights() {
             <Button onClick={() => { dispatch(sub(number)) }}>我是减少redux函数按钮</Button>
             <Button onClick={() => { dispatch(del()) }}>我是异步定时器减少redux函数按钮</Button>
             <Button onClick={() => getUserList()}>我是请求用户列表</Button>
+            <Button onClick={() => console.log(isEven(4))}>我是ISEVEN</Button>
 
             <div>
                 我是上传组件

@@ -11,9 +11,13 @@ import { BrowserRouter as Routers } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+    //react-redux
     <Provider store={store}>
+        {/* router */}
         <Routers>
+            {/* 校验token */}
             <AppProvider>
+                {/* Router */}
                 <Router></Router>
             </AppProvider>
         </ Routers>
